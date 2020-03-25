@@ -8,6 +8,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Route
+          //exact
           path="/"
           render={() => (
             <React.Fragment>
