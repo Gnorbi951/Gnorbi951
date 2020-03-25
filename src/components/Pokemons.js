@@ -1,7 +1,12 @@
 import React from "react";
 import Navbar from "./Navbar";
+import axios from "axios";
 
-export default function Pokemons() {
+function Pokemons() {
+  axios
+    .get("https://pokeapi.co/api/v2/pokemon")
+    .then(resp => console.log(resp));
+
   return (
     <div>
       <Navbar />
@@ -9,3 +14,5 @@ export default function Pokemons() {
     </div>
   );
 }
+
+export default Pokemons;
