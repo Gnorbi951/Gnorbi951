@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import Pokemons from "./components/Pokemons";
 import "./App.css";
 import Navbar from "./components/Navbar";
 
@@ -8,7 +9,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Route
-          //exact
+          exact
           path="/"
           render={() => (
             <React.Fragment>
@@ -19,6 +20,7 @@ class App extends Component {
             </React.Fragment>
           )}
         />
+        <Route path="/pokemons" component={Pokemons}></Route>
       </BrowserRouter>
     );
   }
