@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Pokemons from "./components/Pokemons";
+import Types from "./components/Types";
 import "./App.css";
 import Navbar from "./components/Navbar";
 
@@ -21,6 +22,7 @@ class App extends Component {
           )}
         />
         <Route path="/pokemons" component={Pokemons}></Route>
+        <Route path="/types" component={Types}></Route>
       </BrowserRouter>
     );
   }
