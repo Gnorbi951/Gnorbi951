@@ -15,7 +15,6 @@ export default function Navbar() {
       <Link class="right_link" style={linkStyle} to="/types">
         Types
       </Link>
-      <h2>This will be my navbar</h2>
     </div>
   );
 }
