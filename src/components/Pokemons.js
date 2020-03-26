@@ -6,7 +6,8 @@ class Pokemons extends Component {
   state = {
     pokemons: [],
     next: "",
-    prev: ""
+    prev: "",
+    isLoaded: false
   };
 
   componentDidMount() {
@@ -14,30 +15,44 @@ class Pokemons extends Component {
       this.setState({ next: resp.data.next });
       this.setState({ prev: resp.data.previous });
       const pokemonData = resp.data.results;
+      let pokemons = [];
       pokemonData.map(data => {
         let pokemon = { name: data.name, picture: "" };
         axios
           .get(data.url)
           .then(url => (pokemon.picture = url.data.sprites.front_default));
-        this.state.pokemons.push(pokemon);
+        pokemons.push(pokemon);
       });
+      this.setState({ pokemons: pokemons });
+      this.setState({ isLoaded: true });
     });
   }
 
   render() {
-    return (
-      <div>
-        <Navbar />
+    if (!this.state.isLoaded) {
+      return (
         <div>
-          {this.state.pokemons.map(pok => (
-            <div class="card">
-              <img alt="pokemon_picture" src={pok.picture}></img>
-              <p>{pok.name}</p>
-            </div>
-          ))}
+          <Navbar />
+          Loading...
         </div>
-      </div>
-    );
+      );
+    } else {
+      console.log(this.state.pokemons[0].picture);
+
+      return (
+        <div>
+          <Navbar />
+          <div>
+            {this.state.pokemons.map(pok => (
+              <div class="card">
+                <img alt="pokemon_picture" src={pok.picture}></img>
+                <p>{pok.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
   }
 }
 
