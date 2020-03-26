@@ -4,13 +4,17 @@ import axios from "axios";
 
 class Pokemons extends Component {
   state = {
-    pokemon: []
+    pokemons: [],
+    next: "",
+    prev: ""
   };
 
   componentDidMount() {
-    axios
-      .get("https://pokeapi.co/api/v2/pokemon")
-      .then(resp => this.setState({ pokemon: resp.data.results }));
+    axios.get("https://pokeapi.co/api/v2/pokemon").then(resp => {
+      this.setState({ next: resp.data.next });
+      this.setState({ prev: resp.data.previous });
+      this.setState({ pokemons: resp.data.results });
+    });
   }
 
   render() {
@@ -18,8 +22,8 @@ class Pokemons extends Component {
       <div>
         <Navbar />
         <div>
-          {this.state.pokemon.map(pok => (
-            <li>{pok.name}</li>
+          {this.state.pokemons.map(pok => (
+            <p attr={pok.url}>{pok.name}</p>
           ))}
         </div>
       </div>
