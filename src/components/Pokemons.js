@@ -17,7 +17,10 @@ class Pokemons extends Component {
       const pokemonData = resp.data.results;
       let pokemons = [];
       pokemonData.map(data => {
-        let pokemon = { name: data.name, picture: "" };
+        const pokemonName = data.name;
+        const nameCapitalized =
+          pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
+        let pokemon = { name: nameCapitalized, picture: "" };
         axios.get(data.url).then(url => {
           pokemon.picture = url.data.sprites.front_default;
           pokemons.push(pokemon);
