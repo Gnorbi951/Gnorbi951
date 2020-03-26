@@ -33,9 +33,6 @@ class Pokemons extends Component {
 
   render() {
     if (!this.state.isLoaded) {
-      this.state.pokemons.forEach(pokemon => {
-        console.log(pokemon);
-      });
       return (
         <div>
           <Navbar />
@@ -43,6 +40,9 @@ class Pokemons extends Component {
         </div>
       );
     } else {
+      this.state.pokemons.forEach(pokemon => {
+        console.log(pokemon);
+      });
       return (
         <div>
           <Navbar />
