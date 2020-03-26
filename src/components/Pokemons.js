@@ -43,11 +43,15 @@ class Pokemons extends Component {
       return (
         <div>
           <Navbar />
-          <div>
+          <div class="card_container">
             {this.state.pokemons.map(pok => (
               <div class="card">
-                <p>{pok.name}</p>
-                <img alt="pokemon_picture" src={pok.picture}></img>
+                <img
+                  class="pokemon_picture"
+                  alt="pokemon_picture"
+                  src={pok.picture}
+                ></img>
+                <p class="pokemon_name">{pok.name}</p>
               </div>
             ))}
           </div>
