@@ -16,17 +16,17 @@ class Pokemons extends Component {
       this.setState({ prev: resp.data.previous });
       const pokemonData = resp.data.results;
       let pokemons = [];
-      pokemonData.map(data => {
-        let pokemon = { name: data.name, picture: "" };
-        axios
-          .get(data.url)
-          .then(url => (pokemon.picture = url.data.sprites.front_default))
-          .then(() => pokemons.push(pokemon))
-          .then(() => this.setState({ isLoaded: true }));
-        //pokemons.push(pokemon);
-      });
+      pokemonData.map(
+        ...data => {
+          let pokemon = { name: data.name, picture: "" };
+          axios.get(data.url).then(url => {
+            pokemon.picture = url.data.sprites.front_default;
+            pokemons.push(pokemon);
+            this.setState({ isLoaded: true });
+          });
+        }
+      );
       this.setState({ pokemons: pokemons });
-      //this.setState({ isLoaded: true });
     });
   }
 
