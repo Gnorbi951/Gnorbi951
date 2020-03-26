@@ -23,6 +23,6 @@ export default function Navbar() {
 }
 
 const linkStyle = {
-  color: "grey",
+  color: "#ffac41",
   textDecoration: "none"
 };

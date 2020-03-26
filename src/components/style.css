@@ -52,6 +52,8 @@ a.right_link {
 .pokemon_name {
   text-align: center;
   text-decoration: underline;
+  font-size: 1.2rem;
+  font-weight: bold;
   color: #ffac41;
   text-decoration-color: #000000;
 }
