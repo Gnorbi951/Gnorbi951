@@ -7,7 +7,7 @@ export default function Navbar() {
     <div class="navbar">
       <img
         alt="navbar_picture"
-        src="https://lh3.googleusercontent.com/proxy/jC2wXWqrTjVxTMdgqEAc_gV0YCJ-xm1kuvYHGbEk23Gz6U_Xz8Glm2TPwvnYCAORl8RE1LkCHv-gS2rp3A1qzYFixcq6NpEQrqiHN0d67SlnJwRi1EKhSq0e2XB_XJfAmy8aPE86zK_pog"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"
       ></img>
       <Link class="left_link" style={linkStyle} to="/pokemons">
         Pokémons
