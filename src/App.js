@@ -31,7 +31,3 @@ class App extends Component {
 }
 
 export default App;
-
-const child = ({ match }) => {
-  console.log(match.params.id);
-};
