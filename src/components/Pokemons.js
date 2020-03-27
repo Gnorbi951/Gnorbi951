@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 import axios from "axios";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Link, Route } from "react-router-dom";
 
 class Pokemons extends Component {
   state = {
@@ -30,7 +30,6 @@ class Pokemons extends Component {
         });
       });
       this.setState({ pokemons: pokemons });
-      console.log(this.state.pokemons);
     });
   }
 
@@ -55,7 +54,9 @@ class Pokemons extends Component {
                     alt="pokemon_picture"
                     src={pok.picture}
                   ></img>
-                  <p class="pokemon_name">{pok.name}</p>
+                  <Link path={`pokemon/${pok.id}`} class="pokemon_name">
+                    <p>{pok.name}</p>
+                  </Link>
                 </div>
               ))}
             </div>
