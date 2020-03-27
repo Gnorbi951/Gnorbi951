@@ -10,7 +10,7 @@ export default class Types extends Component {
   componentDidMount() {
     axios.get("https://pokeapi.co/api/v2/type").then(resp => {
       this.setState({ types: resp.data.results });
-      axios.get(this.state.types[0].url).then(resp => console.log(resp.data));
+      console.log(this.state.types);
     });
   }
 
@@ -18,7 +18,13 @@ export default class Types extends Component {
     return (
       <div>
         <Navbar />
-        <h1>This will be the types page</h1>
+        <div class="card_container">
+          {this.state.types.map(type => (
+            <div class="card">
+              <p class="type_name">{type.name}</p>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
