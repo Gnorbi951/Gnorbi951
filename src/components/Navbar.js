@@ -14,9 +14,9 @@ export default function Navbar() {
         <Link class="left_link" style={linkStyle} to="/pokemons">
           Pokémons
         </Link>
-        <Link class="right_link" style={linkStyle} to="/types">
+        <a class="right_link" style={linkStyle} href="/types">
           Types
-        </Link>
+        </a>
       </div>
     </div>
   );

@@ -22,9 +22,11 @@ class App extends Component {
             </React.Fragment>
           )}
         />
-        <Route path="/pokemons" component={Pokemons}></Route>
-        <Route path="/types" component={Types}></Route>
-        <Route path="/pokemon/:id" component={Pokemon}></Route>
+        <Switch>
+          <Route path="/pokemons" component={Pokemons}></Route>
+          <Route path="/types" component={Types}></Route>
+          <Route path="/pokemon/:id" component={Pokemon}></Route>
+        </Switch>
       </BrowserRouter>
     );
   }

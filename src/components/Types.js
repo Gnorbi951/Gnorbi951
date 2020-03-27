@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 import axios from "axios";
+import { withRouter } from "react-router";
 
-export default class Types extends Component {
+class Types extends Component {
   state = {
     types: []
   };
@@ -28,3 +29,5 @@ export default class Types extends Component {
     );
   }
 }
+
+export default Types;

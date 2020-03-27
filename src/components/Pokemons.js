@@ -54,9 +54,9 @@ class Pokemons extends Component {
                     alt="pokemon_picture"
                     src={pok.picture}
                   ></img>
-                  <Link path={`pokemon/${pok.id}`} class="pokemon_name">
+                  <a href={`/pokemon/${pok.id}`} class="pokemon_name">
                     <p>{pok.name}</p>
-                  </Link>
+                  </a>
                 </div>
               ))}
             </div>
