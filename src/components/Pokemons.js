@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 import axios from "axios";
+import { BrowserRouter, Route } from "react-router-dom";
 
 class Pokemons extends Component {
   state = {
@@ -20,14 +21,16 @@ class Pokemons extends Component {
         const pokemonName = data.name;
         const nameCapitalized =
           pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
-        let pokemon = { name: nameCapitalized, picture: "" };
+        let pokemon = { name: nameCapitalized, picture: "", id: 0 };
         axios.get(data.url).then(url => {
           pokemon.picture = url.data.sprites.front_default;
+          pokemon.id = url.data.id;
           pokemons.push(pokemon);
           this.setState({ isLoaded: true });
         });
       });
       this.setState({ pokemons: pokemons });
+      console.log(this.state.pokemons);
     });
   }
 
@@ -41,21 +44,23 @@ class Pokemons extends Component {
       );
     } else {
       return (
-        <div>
-          <Navbar />
-          <div class="card_container">
-            {this.state.pokemons.map(pok => (
-              <div class="card">
-                <img
-                  class="pokemon_picture"
-                  alt="pokemon_picture"
-                  src={pok.picture}
-                ></img>
-                <p class="pokemon_name">{pok.name}</p>
-              </div>
-            ))}
+        <BrowserRouter>
+          <div>
+            <Navbar />
+            <div class="card_container">
+              {this.state.pokemons.map(pok => (
+                <div class="card">
+                  <img
+                    class="pokemon_picture"
+                    alt="pokemon_picture"
+                    src={pok.picture}
+                  ></img>
+                  <p class="pokemon_name">{pok.name}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </BrowserRouter>
       );
     }
   }

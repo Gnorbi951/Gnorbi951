@@ -10,7 +10,6 @@ export default class Types extends Component {
   componentDidMount() {
     axios.get("https://pokeapi.co/api/v2/type").then(resp => {
       this.setState({ types: resp.data.results });
-      console.log(this.state.types);
     });
   }
 
