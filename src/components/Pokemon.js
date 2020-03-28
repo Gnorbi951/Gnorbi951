@@ -30,13 +30,13 @@ export default class Pokemon extends Component {
       <div>
         <Navbar />
         <div class="card_container">
-          <h1>Name: {this.state.name}</h1>
-          <h2>Height: {this.state.height}"</h2>
-          <h3>Abilities:</h3>
+          <h1 id="poke_name">Name: {this.state.name}</h1>
+          <h2 id="poke_height">Height: {this.state.height}"</h2>
+          <h3 id="pokebilities">Abilities:</h3>
           {this.state.abilities.map(array => (
-            <li>{array.ability.name}</li>
+            <li class="poke_list_item">{array.ability.name}</li>
           ))}
-          <img alt="pokemon_image" src={this.state.image}></img>
+          <img alt="pokemon_image" id="poke_img" src={this.state.image}></img>
         </div>
       </div>
     );
