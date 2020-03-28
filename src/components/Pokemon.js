@@ -30,7 +30,7 @@ export default class Pokemon extends Component {
       <div>
         <Navbar />
         <div class="card_container">
-          <h1 id="poke_name">Name: {this.state.name}</h1>
+          <h1 id="poke_name"> {this.state.name}</h1>
           <h2 id="poke_height">Height: {this.state.height}"</h2>
           <h3 id="pokebilities">Abilities:</h3>
           {this.state.abilities.map(array => (

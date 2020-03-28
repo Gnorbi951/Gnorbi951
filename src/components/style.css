@@ -81,21 +81,26 @@ a.right_link {
   text-decoration: none;
   color: #ffac41;
   font-size: 3rem;
+  margin-left: 0.5rem;
 }
 
 #poke_height {
   color: #ffac41;
   font-size: 2rem;
+  margin-left: 1rem;
 }
 
 #pokebilities {
   color: #ffac41;
   font-size: 2rem;
+  margin-left: 1rem;
 }
 
 .poke_list_item {
   color: #ff1e56;
   font-size: 1.5rem;
+  margin-left: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 #poke_img {
