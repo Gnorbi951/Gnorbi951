@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 import axios from "axios";
-import { BrowserRouter, Link, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 class Pokemons extends Component {
   state = {

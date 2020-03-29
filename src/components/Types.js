@@ -1,33 +1,31 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import axios from "axios";
-import { withRouter } from "react-router";
 
-class Types extends Component {
-  state = {
-    types: []
-  };
+const Types = () => {
+  const [state, setState] = useState({ types: [] });
 
-  componentDidMount() {
-    axios.get("https://pokeapi.co/api/v2/type").then(resp => {
-      this.setState({ types: resp.data.results });
-    });
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      axios.get("https://pokeapi.co/api/v2/type").then(resp => {
+        setState({ types: resp.data.results });
+      });
+    };
+    fetchData();
+  });
 
-  render() {
-    return (
-      <div>
-        <Navbar />
-        <div class="card_container">
-          {this.state.types.map(type => (
-            <div class="card">
-              <p class="type_name">{type.name}</p>
-            </div>
-          ))}
-        </div>
+  return (
+    <div>
+      <Navbar />
+      <div class="card_container">
+        {state.types.map(type => (
+          <div class="card">
+            <p class="type_name">{type.name}</p>
+          </div>
+        ))}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Types;
