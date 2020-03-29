@@ -6,13 +6,13 @@ const Types = () => {
   const [state, setState] = useState({ types: [] });
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = () => {
       axios.get("https://pokeapi.co/api/v2/type").then(resp => {
         setState({ types: resp.data.results });
       });
     };
     fetchData();
-  });
+  }, [state.types]);
 
   return (
     <div>
