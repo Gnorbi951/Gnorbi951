@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Pokemons from "./components/Pokemons";
 import Types from "./components/Types";
 import "./App.css";
@@ -8,25 +8,23 @@ import Pokemon from "./components/Pokemon";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router>
+      <Navbar />
       <Route
         exact
         path="/"
         render={() => (
           <React.Fragment>
             <div className="container">
-              <Navbar />
               <h1>Test</h1>
             </div>
           </React.Fragment>
         )}
       />
-      <Switch>
-        <Route path="/pokemons" component={Pokemons}></Route>
-        <Route path="/types" component={Types}></Route>
-        <Route path="/pokemon/:id" component={Pokemon}></Route>
-      </Switch>
-    </BrowserRouter>
+      <Route path="/pokemons" exact component={Pokemons}></Route>
+      <Route path="/types" exact component={Types}></Route>
+      <Route path="/pokemon/:id" component={Pokemon}></Route>
+    </Router>
   );
 };
 

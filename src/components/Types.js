@@ -15,8 +15,7 @@ const Types = () => {
   }, [state.types]);
 
   return (
-    <div>
-      <Navbar />
+    <>
       <div class="card_container">
         {state.types.map(type => (
           <div class="card">
@@ -24,7 +23,8 @@ const Types = () => {
           </div>
         ))}
       </div>
-    </div>
+      <span>Hello</span>
+    </>
   );
 };
 

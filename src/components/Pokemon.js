@@ -24,7 +24,6 @@ const Pokemon = props => {
 
   return (
     <div>
-      <Navbar />
       <div class="card_container">
         <h1 id="poke_name"> {name.name}</h1>
         <h2 id="poke_height">Height: {height.height}"</h2>
